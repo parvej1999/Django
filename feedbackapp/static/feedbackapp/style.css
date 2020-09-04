@@ -1,0 +1,126 @@
+body{
+    margin:0px;
+    padding:0px;
+    background:rgba(240,240,240);
+}
+
+.messages-section .message{
+    color:white;
+    height:25px;
+    width:50rem;
+    background:rgb(126, 126, 255);
+    border:solid 1px blue;
+    border-radius: 0.3rem;;
+    margin: auto;
+    margin-top:0.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.messages-section .message p{
+   margin:auto;
+   padding:2px;
+   
+}
+
+.messages-section .message p span{
+    color:darkblue;
+    position: absolute;
+    right:5px;
+    cursor: pointer;
+}
+
+div.scroll {
+  background-color: #fed9ff;
+  width: 600px;
+  height: 450px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.navbar{
+    margin:0px;
+    background: linear-gradient(90.4deg, rgba(244, 199, 62, 1) -3.8%, rgba(244, 62, 62, 1) 46.8%, rgba(245, 61, 195, 1) 98.8%);
+    padding:0.5rem;
+
+}
+
+.navbar .brand-logo{
+    margin-left:2rem;
+}
+
+.navbar .brand-logo:hover{
+    color:#333;
+    cursor: pointer;
+}
+
+.navbar .side ul{
+list-style-type: none;
+position: absolute;
+right: 2rem;
+top:1rem;
+display:flex;
+}
+
+.navbar .side ul li a{
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+    font-weight: bold;
+    flex-wrap: wrap;
+    
+}
+
+.navbar .side ul li a:hover{
+    color:#333;
+}
+
+.navbar .side ul li{
+    /* float:left; */
+    margin-left:2rem;
+    /* flex-wrap: wrap; */
+}
+
+.row{
+    display:flex;
+    right:0rem;
+    top:0.5rem;
+
+}
+
+
+.card{
+    position: relative;
+    margin:2rem;
+    padding:1.6rem;
+    background:white;
+    border-radius: 1rem;
+}
+
+.card .card-body{
+width: 500px;
+
+}
+
+ .card-title span{
+   text-align: start;
+    color:green;
+}
+
+.card .card-body p{
+    margin:auto;
+    text-justify: auto;
+    text-align:justify;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar .side ul{
+      display:block;
+      
+  }
+  .navbar .side ul li{
+      margin-top:0.2rem;
+  }
+  }

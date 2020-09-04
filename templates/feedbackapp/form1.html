@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'feedbackapp/style.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <section class="navbar">
+        <div class="brand-logo">
+            <h1>FEEDBACK</h1>
+        </div>
+        <div class="side">
+            <ul>
+                <li>
+                    <a href="">About Us</a>
+                </li>
+                <li>
+                    <a href="">Contact</a>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+    <!-- navbar end -->
+
+    {% if messages %}
+    <section class="messages-section" id='msg'>
+        {% for message in messages %}
+        <div class="message">
+            <p>{{ message }}<span onclick="hide()">x</span></p>
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    <section class='section2'>
+        <div class="row">
+            <div class="col1">
+                <div class="card">
+                    <form class="myform" method="POST" onsubmit="return(validate());" name="myfrom">
+                        {% csrf_token %}
+                        <fieldset>
+                            <legend>
+                                <h2>Feedback:</h2>
+                            </legend>
+                            <label for="fname">Full Name:</label><br>
+                            <input id="fname" type="text" name="fname" required><br>
+                            <label for="mail">Email:</label><br>
+                            <input id="mail" type="email" name="email" required><br>
+                            <br>
+                            <label for="comment">Comment
+                            </label><br>
+
+                            <textarea id="comment" name="msg" rows="4" cols="50" required></textarea><br />
+                            <input type="submit" value="Submit">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="col2">
+                {% if comments %}
+                <br />
+                {{comments_no}} Comments
+                <div class="scroll">
+                    {% for comment in comments %}
+                    <div class="card">
+
+                        <span class="card-title">
+                            <small style="color:blue;">{{comment.mail}}</small> commented on
+                            <small style="color:blue;">{{comment.timeStamp|date:'M d, Y'}}:</small>
+                        </span>
+                        <hr>
+                        <div class="card-body">
+                            <p>{{comment.message|linebreaks}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'feedbackapp/script.js' %}"></script>
+</body>
+
+</html>
