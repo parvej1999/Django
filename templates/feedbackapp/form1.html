@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'feedbackapp/style.css' %}">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <title>Document</title>
 </head>
 
@@ -61,26 +62,29 @@
                             <input type="submit" value="Submit">
                         </fieldset>
                     </form>
+
                 </div>
             </div>
             <div class="col2">
                 {% if comments %}
                 <br />
                 {{comments_no}} Comments
-                <div class="scroll">
-                    {% for comment in comments %}
-                    <div class="card">
+                <div class="comments">
+                    <div class="scroll">
+                        {% for comment in comments %}
+                        <div class="card">
 
-                        <span class="card-title">
-                            <small style="color:blue;">{{comment.mail}}</small> commented on
-                            <small style="color:blue;">{{comment.timeStamp|date:'M d, Y'}}:</small>
-                        </span>
-                        <hr>
-                        <div class="card-body">
-                            <p>{{comment.message|linebreaks}}</p>
+                            <span class="card-title">
+                                <small style="color:blue;">{{comment.mail}}</small> commented on
+                                <small style="color:blue;">{{comment.timeStamp|date:'M d, Y'}}:</small>
+                            </span>
+                            <hr>
+                            <div class="card-body">
+                                <p>{{comment.message|linebreaks}}</p>
+                            </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
                 {% endif %}
             </div>
