@@ -2,6 +2,20 @@ from django.shortcuts import render, redirect
 from .models import feedback
 from django.contrib import messages
 
+---------------hack2021----------
+def userPost(request, username):
+    try:
+        author = User.objects.get(username=username)
+    except User.DoesNotExist:
+        raise Http404()
+
+    posts = Post.objects.filter(author=author)
+    context = {
+        'posts': posts
+    }
+    return render(request, 'blog/userPost.html', context)
+===============================
+
 # Create your views here.
 def showbase(request):
     comments = feedback.objects.all().order_by("-timeStamp")
